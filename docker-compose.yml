@@ -22,7 +22,7 @@ services:
       - db
     environment:
       DJANGO_SETTINGS_MODULE: 'settings.base'
-      PY_AUTORELOAD: 1
+
 
     command: /bin/bash -c "pip install -r requirements.txt && invoke run"
 
@@ -35,7 +35,8 @@ services:
     links:
       - web
     ports:
-      - 8000:80
+      - 80:80
+
 
 
 volumes:
