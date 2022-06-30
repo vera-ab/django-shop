@@ -1,9 +1,10 @@
 from django.urls import path
 
-from .views import my_first_view
+from shop.views import MyView, MovieRetrieveUpdateView
 
-app_name = 'shop'
+app_name = "shop"
 
 urlpatterns = [
-    path('', my_first_view)
+    path('', MyView.as_view()),
+    path("api/<str:pk>/", MovieRetrieveUpdateView.as_view()),
 ]

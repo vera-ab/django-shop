@@ -3,4 +3,6 @@ psycopg2-binary==2.9.3
 uwsgi==2.0.20
 invoke==1.7.0
 
-
+djangorestframework==3.13.1
+markdown==3.3.7
+django-filter==22.1

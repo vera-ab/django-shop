@@ -1,7 +1,18 @@
-from django.http import HttpResponse
-import datetime
+from rest_framework.generics import (
+    ListCreateAPIView,
+    ListAPIView,
+    RetrieveUpdateDestroyAPIView,
+)
 
-def my_first_view(request):
-    now = datetime.datetime.now()
-    html = "<html><body>It is now %s.</body></html>" % now
-    return HttpResponse(html)
+from shop.models import Movie
+from shop.serializers import MovieSerilalizer
+
+
+class MyView(ListCreateAPIView):
+    serializer_class = MovieSerilalizer
+    queryset = Movie.objects.all()
+
+
+class MovieRetrieveUpdateView(RetrieveUpdateDestroyAPIView):
+    serializer_class = MovieSerilalizer
+    queryset = Movie.objects.all()

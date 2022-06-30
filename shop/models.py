@@ -11,7 +11,7 @@ class Author(models.Model):
 class Movie(models.Model):
     MOVIE_TYPE = [('Short', 'Short-movie'), ('Movie', 'Movie')]
 
-    imdb_id = models.CharField(primary_key=True, max_length=255)
+    imdb_id = models.CharField(max_length=255, null=True)
     title_type = models.CharField(max_length=255, choices=MOVIE_TYPE)
     name = models.CharField(max_length=255)
     is_adult = models.BooleanField(null=True)
@@ -23,7 +23,7 @@ class Movie(models.Model):
 
 
 class Person(models.Model):
-    imdb_id = models.CharField(primary_key=True, max_length=255)
+    imdb_id = models.CharField(max_length=255)
     name = models.CharField(max_length=255)
     birth_year = models.DateField(null=True)
     death_year = models.DateField(null=True)

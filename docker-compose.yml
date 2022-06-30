@@ -26,6 +26,16 @@ services:
 
     command: /bin/bash -c "pip install -r requirements.txt && invoke run"
 
+
+  ui:
+    image: node:16.14.2
+    volumes:
+      - ./client:/src
+    ports:
+      - 3000:3000
+    command: /bin/bash -c "cd /src/; npm i; npm run dev"
+
+
   nginx:
     image: nginx
     volumes:
@@ -34,6 +44,7 @@ services:
       - media:/media:ro
     links:
       - web
+      - ui
     ports:
       - 80:80
 
